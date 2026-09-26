@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Tier-site and Mojang lookups run in `src/lib/mc-player.functions.ts` server functions, never from the browser, so third-party APIs are fetched server-side and normalized into one shape.
