@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
 const SUGGESTIONS = ["ItzRealMe", "Swight", "Marlowww", "Technoblade"];
 
 function Home() {
-  const { q } = Route.useSearch();
+  const q = Route.useSearch().q ?? "";
   const navigate = useNavigate({ from: Route.fullPath });
   const [input, setInput] = useState(q);
   const lookup = useServerFn(getPlayer);
