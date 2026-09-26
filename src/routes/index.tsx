@@ -11,9 +11,8 @@ const DESCRIPTION =
   "Search any Minecraft username to see their skin, UUID, cape and PvP tiers from MCTiers, SubTiers and PvPTiers in one place.";
 
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>): { q?: string } => ({
-    q: typeof search["q"] === "string" ? (search["q"] as string) : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { q?: string } =>
+    typeof search["q"] === "string" && search["q"] ? { q: search["q"] as string } : {},
   head: () => ({
     meta: [
       { title: TITLE },
